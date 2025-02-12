@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metin Ekleme Sitesi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        #metinKutusu {
+            width: 80%;
+            height: 100px;
+            margin: 10px 0;
+        }
+        #metinAlani {
+            border: 1px solid #ccc;
+            padding: 10px;
+            min-height: 100px;
+            width: 80%;
+            margin: auto;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>Metin Ekleme Sitesi</h1>
+    <textarea id="metinKutusu" placeholder="Metninizi buraya yazın..."></textarea><br>
+    <button onclick="metniEkle()">Metni Ekle</button>
+    <h2>Eklenen Metinler</h2>
+    <div id="metinAlani"></div>
+    
+    <script>
+        function metniEkle() {
+            var metinKutusu = document.getElementById("metinKutusu");
+            var metinAlani = document.getElementById("metinAlani");
+            
+            if (metinKutusu.value.trim() !== "") {
+                var yeniMetin = document.createElement("p");
+                yeniMetin.textContent = metinKutusu.value;
+                metinAlani.appendChild(yeniMetin);
+                metinKutusu.value = "";
+            }
+        }
+    </script>
+</body>
+</html>
